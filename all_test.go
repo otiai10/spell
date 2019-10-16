@@ -30,6 +30,18 @@ func TestParse(t *testing.T) {
 				`"foo baa"`,
 			},
 		},
+		{
+			Given: `foobaa`,
+			Expect: []string{
+				"foobaa",
+			},
+		},
+		{
+			Given: "'unclosed-quote",
+			Expect: []string{
+				"'unclosed-quote",
+			},
+		},
 	}
 
 	for _, c := range cases {

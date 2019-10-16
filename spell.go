@@ -17,6 +17,9 @@ func Parse(s string) []string {
 			r = append(r, t.Flush())
 		}
 	}
+	if len(t.pool) != 0 {
+		r = append(r, t.Flush())
+	}
 	return r
 }
 
