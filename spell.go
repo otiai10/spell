@@ -7,20 +7,20 @@ const (
 )
 
 // Parse ...
-func Parse(s string) []string {
-	r := []string{}
+func Parse(s string) Words {
+	w := Words{}
 	l := len(s)
 	t := new(token)
 	for i := 0; i < l; i++ {
 		t.Push(s[i])
 		if t.Closed {
-			r = append(r, t.Flush())
+			w = append(w, t.Flush())
 		}
 	}
 	if len(t.pool) != 0 {
-		r = append(r, t.Flush())
+		w = append(w, t.Flush())
 	}
-	return r
+	return w
 }
 
 // token
