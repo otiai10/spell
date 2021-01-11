@@ -63,5 +63,6 @@ func TestParse(t *testing.T) {
 
 	words = Parse("@otiai10 hey yo, what's up?")
 	words.Remove("hey", 0)
+	Expect(t, words.Flag("hey")).ToBe(false)
 	Expect(t, words.Flag("yo,")).ToBe(true)
 }

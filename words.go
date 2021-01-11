@@ -26,11 +26,12 @@ func (words Words) Arg(name string) string {
 }
 
 // Remove ...
-func (words Words) Remove(name string, count int) {
+func (words Words) Remove(name string, count int) Words {
 	for i, w := range words {
 		if w == name {
 			words = append(words[:i], words[i+count+1:]...)
 			break
 		}
 	}
+	return words
 }
